@@ -1,9 +1,14 @@
 # mergesort
-mergesort two ways
-1.归并排序法的原理
-时间复杂度：O(nlogn)
-思想：将数组持续一分为二，对子数组进行排序，排序后进行合并
-递归：
+mergesort two ways   
+
+1.归并排序法的原理   
+
+时间复杂度：O(nlogn)   
+
+思想：将数组持续一分为二，对子数组进行排序，排序后进行合并   
+
+递归：  
+
 MergeSort(arr,l,r){
       if(l>=r) return;//求解最基本问题
       int mid=（l+r)/2;
@@ -13,7 +18,9 @@ MergeSort(arr,l,r){
 }
 
 2.归并过程
+
 使用辅助空间，无法原地完成
+
 import java.util.Arrays;
 
 public class MergeSortMain {
@@ -155,14 +162,13 @@ public class MergeSortMain {
 }
         
 4.归并排序法的时间复杂度分析
-O(nlogn)
-共有logn+1层，logn级别
-每层中级别o(n)
-·主定理《算法导论》
 
+O(nlogn)  
+共有logn+1层，logn级别  
+每层中级别o(n)    
+时间复杂度标准算法参考《算法导论》主定理
 
-5.优化归并排序
-时间复杂度 O(n)
+5.优化归并排序  优化1：判断是否需要merge  
 
 //进行判断之后，如果完全有序的话，时间复杂度是O(n)
 import java.util.Arrays;
@@ -200,7 +206,7 @@ public class MergeSortMain {
         sort2(arr,l,mid);
         sort2(arr,mid+1,r);
         
-        if(arr[mid].compareTo(arr[mid+1])>0)
+        if(arr[mid].compareTo(arr[mid+1])>0)//若无序，执行以下代码
              merge(arr,l,mid,r);
             
     }
@@ -251,9 +257,11 @@ public class MergeSortMain {
        System.out.println(Arrays.toString(arr));*/     
     }
 }
-非叶子节点：n/2+n/4+n/8+...+	1
-=n/2(1-(1/2)^m)/(i/2)<n   =O(n)
-叶子节点：n
+
+非叶子节点：n/2+n/4+n/8+...+	1  
+=n/2(1-(1/2)^m)/(i/2)<n   =O(n)  
+叶子节点：n  
+
 6.使用插入排序优化归并排序
 
 在脚本语言中使用插入排序优化可能不稳定，更耗时
@@ -480,8 +488,10 @@ public class MergeSortMain {
 }
 
 7.自底向上的归并排序算法
-把每个元素看成有序的数组
-两两为一组归并，
+
+把每个元素看成有序的数组  
+两两为一组归并
+
 import java.util.Arrays;
 
 public class MergeSortMain {
@@ -653,13 +663,16 @@ public class MergeSortMain {
 }
 
 9.快速求解数组的逆序对数问题
-例：7 1 4 2 8 3 6 5
-7 1为一对逆序数，7 4也是一对逆序数,7 8不是
-最朴素的想法：遍历所有的数据对
+
+例：7 1 4 2 8 3 6 5  
+7 1为一对逆序数，7 4也是一对逆序数,7 8不是  
+（1）最朴素的想法：遍历所有的数据对
+
 for(int i=0;i<n;i++)
      for(int j=i+1;j<n;j++)
          if(arr[i]>arr[j] res++;
-O(n^2)
+         
+时间复杂度：O(n^2)
 
  public int reversePairs(int[] nums){
         int res=0;
@@ -670,7 +683,9 @@ O(n^2)
     }
 
 快速求解：归并过程O(nlogn)
+
 如果arr[j]<arr[i] res+=(mid-i+1)
+
 class Solution {
 
     public int reversePairs(int[] nums){
@@ -724,12 +739,12 @@ class Solution {
     }
 }
 
-10.小结
-归并排序法是递归算法
-分治算法
-优化1：判断是否需要merge
-优化2: 对小规模数据使用插入排序
+10.小结  
+归并排序法是递归算法  
+分治算法  
+优化1：判断是否需要merge  
+优化2: 对小规模数据使用插入排序  
 优化3：只创建一个临时空间
 
-归并排序算法不是原地排序算法，空间复杂度o(n)
+归并排序算法不是原地排序算法，空间复杂度o(n)  
 应用：解决逆序数对数问题
