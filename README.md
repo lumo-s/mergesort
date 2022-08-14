@@ -1,5 +1,5 @@
 # mergesort
-##mergesort two ways
+mergesort two ways
 1.归并排序法的原理
 时间复杂度：O(nlogn)
 思想：将数组持续一分为二，对子数组进行排序，排序后进行合并
